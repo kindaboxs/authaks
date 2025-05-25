@@ -1,5 +1,6 @@
 import { CardWrapperAuth } from "@/components/auth/card-wrapper-auth";
 import { SignUpForm } from "@/components/auth/sign-up-form";
+import { SignUpFormServerSide } from "@/components/auth/sign-up-form-server";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function SignUpPage() {
@@ -18,7 +19,7 @@ export default function SignUpPage() {
 					<SignUpClientSide />
 				</TabsContent>
 				<TabsContent value="sign-up-server">
-					{/* <SignInServer /> */}
+					<SignUpServerSide />
 				</TabsContent>
 			</Tabs>
 		</div>
@@ -29,6 +30,14 @@ const SignUpClientSide = () => {
 	return (
 		<CardWrapperAuth signUp>
 			<SignUpForm />
+		</CardWrapperAuth>
+	);
+};
+
+const SignUpServerSide = () => {
+	return (
+		<CardWrapperAuth signUp>
+			<SignUpFormServerSide />
 		</CardWrapperAuth>
 	);
 };

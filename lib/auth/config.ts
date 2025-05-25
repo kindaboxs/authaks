@@ -1,5 +1,6 @@
 import { BetterAuthOptions } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { nextCookies } from "better-auth/next-js";
 
 import { APP_NAME } from "@/constants";
 import { env } from "@/env";
@@ -25,10 +26,10 @@ export const authConfig = {
 			verify: (data) => verifyPassword(data),
 		},
 	},
-
 	advanced: {
 		database: {
 			generateId: false,
 		},
 	},
+	plugins: [nextCookies()],
 } satisfies BetterAuthOptions;
