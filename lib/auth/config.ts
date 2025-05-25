@@ -31,5 +31,9 @@ export const authConfig = {
 			generateId: false,
 		},
 	},
+	session: {
+		expiresIn: 60 * 60 * 24 * 3, // 3 days
+		updateAge: 60 * 60 * 24, // 1 day
+	},
 	plugins: [nextCookies()],
 } satisfies BetterAuthOptions;

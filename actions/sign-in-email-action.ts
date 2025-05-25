@@ -7,6 +7,7 @@ import { APIError } from "better-auth/api";
 // import { parseSetCookieHeader } from "better-auth/cookies";
 
 import { auth } from "@/lib/auth";
+import { ErrorCodeAuth } from "@/lib/auth/types";
 import { signInSchema, SignInSchemaType } from "@/schemas/auth-schema";
 
 export const signInEmailAction = async (data: SignInSchemaType) => {
@@ -53,7 +54,12 @@ export const signInEmailAction = async (data: SignInSchemaType) => {
 		return { success: true, error: null };
 	} catch (error) {
 		if (error instanceof APIError) {
-			return { success: false, error: error.message };
+			const errCode = error.body && (error.body.code as ErrorCodeAuth);
+
+			switch (errCode) {
+				default:
+					return { success: false, error: error.message };
+			}
 		}
 
 		return { success: false, error: "Internal Server Error" };
