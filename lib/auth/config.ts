@@ -3,6 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 
 import { APP_NAME } from "@/constants";
 import { env } from "@/env";
+import { hashPassword, verifyPassword } from "@/lib/argon2";
 import { db } from "@/lib/db";
 
 export const authConfig = {
@@ -19,6 +20,10 @@ export const authConfig = {
 		minPasswordLength: 6,
 		maxPasswordLength: 50,
 		autoSignIn: false,
+		password: {
+			hash: (password) => hashPassword(password),
+			verify: (data) => verifyPassword(data),
+		},
 	},
 
 	advanced: {

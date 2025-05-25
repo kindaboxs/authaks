@@ -49,12 +49,12 @@ export const SignInForm = () => {
 				onSuccess: () => {
 					setLoading(false);
 					router.push("/profile");
-					toast.success("Sign up successful", { id: "sign-up-success" });
+					toast.success("Sign in successful", { id: "sign-in-success" });
 				},
 				onError: (ctx) => {
 					setLoading(false);
 					console.log(ctx);
-					toast.error(ctx.error.message, { id: "sign-up-error" });
+					toast.error(ctx.error.message, { id: "sign-in-error" });
 				},
 			},
 		});
