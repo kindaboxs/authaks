@@ -5,9 +5,13 @@ import { geistMono, geistSans } from "@/lib/fonts";
 import "@/styles/globals.css";
 
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { APP_NAME } from "@/constants";
 
 export const metadata: Metadata = {
-	title: "authaks",
+	title: {
+		template: `%s | ${APP_NAME}`,
+		default: APP_NAME,
+	},
 	description: " a site for learning authentication",
 	icons: {
 		icon: [
