@@ -14,4 +14,9 @@ export const authConfig = {
 		level: "debug",
 	},
 	database: prismaAdapter(db, { provider: "postgresql" }),
+	emailAndPassword: {
+		enabled: true,
+		minPasswordLength: 6,
+		maxPasswordLength: 50,
+	},
 } satisfies BetterAuthOptions;

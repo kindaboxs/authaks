@@ -4,6 +4,8 @@ import { geistMono, geistSans } from "@/lib/fonts";
 
 import "@/styles/globals.css";
 
+import { Toaster } from "sonner";
+
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { APP_NAME } from "@/constants";
 
@@ -49,6 +51,7 @@ export default function RootLayout({
 				>
 					{children}
 				</ThemeProvider>
+				<Toaster richColors position="top-center" />
 			</body>
 		</html>
 	);
