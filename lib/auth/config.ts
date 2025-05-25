@@ -18,5 +18,12 @@ export const authConfig = {
 		enabled: true,
 		minPasswordLength: 6,
 		maxPasswordLength: 50,
+		autoSignIn: false,
+	},
+
+	advanced: {
+		database: {
+			generateId: false,
+		},
 	},
 } satisfies BetterAuthOptions;

@@ -50,8 +50,11 @@ export const SignUpForm = () => {
 				},
 				onSuccess: () => {
 					setLoading(false);
-					router.push("/profile");
-					toast.success("Sign up successful", { id: "sign-up-success" });
+					router.push("/sign-in");
+					toast.success("Sign up successful", {
+						id: "sign-up-success",
+						description: "You can now sign in",
+					});
 				},
 				onError: (ctx) => {
 					setLoading(false);
